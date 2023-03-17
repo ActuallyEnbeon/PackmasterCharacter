@@ -1,0 +1,38 @@
+{
+  "${ModID}:DeadlyDraw": {
+    "NAME": "Deadly Draw",
+    "DESCRIPTION": "When you draw this card, Exhaust. NL Deal !D! damage."
+  },
+  "${ModID}:ForceOfWill": {
+    "NAME": "Force of Will",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust this or another card. NL If that card was an Attack, gain 1 Strength."
+  },
+  "${ModID}:HoldTight": {
+    "NAME": "Hold Tight",
+    "DESCRIPTION": "A card in your hand gains ${ModID}:Flashback !M!. NL Exhaust."
+  },
+  "${ModID}:Insurrection": {
+    "NAME": "Insurrection",
+    "DESCRIPTION": "Deal !D! damage. NL Repeat for each time this card was Exhausted this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Exhausted !M! time.)",
+      " NL (Exhausted !M! times.)"
+    ]
+  },
+  "${ModID}:PhasingStrike": {
+    "NAME": "Phasing Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust a card. NL Exhaust."
+  },
+  "${ModID}:Resolve": {
+    "NAME": "Resolve",
+    "DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Increase this card's Block by !M! this combat."
+  },
+  "${ModID}:ShadowShroud": {
+    "NAME": "Shadow Shroud",
+    "DESCRIPTION": "Gain !B! Block. NL If this card is Exhausted, gain !M! *Plated *Armor."
+  },
+  "${ModID}:SplitSecond": {
+    "NAME": "Split Second",
+    "DESCRIPTION": "Deal !D! damage. NL Put a card with ${ModID}:Flashback from your Exhaust pile into your hand."
+  }
+}

@@ -96,6 +96,8 @@ import thePackmaster.summaries.PackSummaryDisplay;
 import thePackmaster.summaries.PackSummaryReader;
 import thePackmaster.ui.*;
 import thePackmaster.ui.FixedModLabeledToggleButton.FixedModLabeledToggleButton;
+import thePackmaster.util.FlashbackUtil;
+import thePackmaster.util.cardvars.FlashbackVar;
 import thePackmaster.util.creativitypack.JediUtil;
 import thePackmaster.util.Keywords;
 import thePackmaster.util.TexLoader;
@@ -487,6 +489,7 @@ public class SpireAnniversary5Mod implements
         BaseMod.addDynamicVariable(new SecondMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
         BaseMod.addDynamicVariable(new HoardVar());
+        BaseMod.addDynamicVariable(new FlashbackVar());
         new AutoAdd(modID)
                 .packageFilter(AbstractPackmasterCard.class)
                 .setDefaultSeen(true)
@@ -826,6 +829,7 @@ public class SpireAnniversary5Mod implements
     public void receiveOnPlayerTurnStart() {
         Leprechaun.staticStartOfTurn();
         JediUtil.receiveOnPlayerTurnStart();
+        FlashbackUtil.onPlayerTurnStart();
         cardsRippedThisTurn = 0;
     }
 

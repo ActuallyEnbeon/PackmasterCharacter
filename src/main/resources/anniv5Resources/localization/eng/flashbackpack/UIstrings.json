@@ -1,0 +1,27 @@
+{
+  "${ModID}:FlashbackPack": {
+    "TEXT": [
+      "Flashpack",
+      "Exhaust cards, then let them come back to your hand! Something else goes here (don't forget to add it)!",
+      "Enbeon"
+    ]
+  },
+  "${ModID}:FlashbackPackHat": {
+    "TEXT": [
+      "This hat does not yet exist.",
+      "Placehatder"
+    ]
+  },
+  "${ModID}:FlashbackCardText": {
+    "TEXT": ["${ModID}:Flashback !${ModID}:fbk!. NL "]
+  },
+  "${ModID}:SplitSecondAction": {
+    "TEXT": [
+      "Select a card with Flashback to return to your hand",
+      "My Exhaust pile has no cards with Flashback!"
+    ]
+  },
+  "${ModID}:CardInHandGainsFlashbackAction": {
+    "TEXT": ["gain Flashback "]
+  }
+}

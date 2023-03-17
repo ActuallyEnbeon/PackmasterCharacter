@@ -1,0 +1,7 @@
+[
+  {
+    "PROPER_NAME": "Flashback",
+    "NAMES": ["flashback"],
+    "DESCRIPTION": "Cards with #yFlashback return to your hand if they are in your #yExhaust pile at turn start. When this happens, X is decreased by 1 this combat, and #yFlashback is removed if it reaches 0."
+  }
+]
