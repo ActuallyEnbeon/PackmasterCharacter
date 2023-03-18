@@ -2,7 +2,7 @@
   "${ModID}:FlashbackPack": {
     "TEXT": [
       "Flashpack",
-      "Exhaust cards, then let them come back to your hand! Something else goes here (don't forget to add it)!",
+      "Exhaust cards to gain bonuses. ${ModID}:Flashback returns cards from your Exhaust pile to be used again!",
       "Enbeon"
     ]
   },

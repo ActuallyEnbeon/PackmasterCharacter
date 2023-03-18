@@ -21,8 +21,8 @@ public class FlashbackPack extends AbstractCardPack {
     @Override
     public ArrayList<String> getCards() {
         ArrayList<String> cards = new ArrayList<>();
-        // TODO: new cards
-        // TODO: change pack strings
+        // TODO: HAT
+        cards.add(BorrowedTime.ID);
         cards.add(DeadlyDraw.ID);
         cards.add(ForceOfWill.ID);
         cards.add(HoldTight.ID);

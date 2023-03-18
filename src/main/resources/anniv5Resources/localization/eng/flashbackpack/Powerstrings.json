@@ -1,4 +1,11 @@
 {
+  "${ModID}:BorrowedTimePower": {
+    "NAME": "Borrowed Time",
+    "DESCRIPTIONS": [
+      "Whenever a card is #yExhausted, apply #b",
+      " #yWeak to a random enemy."
+    ]
+  },
   "${ModID}:FeelNoPainDownPower": {
     "NAME": "Feel No Pain Down",
     "DESCRIPTIONS": [

@@ -1,4 +1,8 @@
 {
+  "${ModID}:BorrowedTime": {
+    "NAME": "Borrowed Time",
+    "DESCRIPTION": "${ModID}:Exhume a card. NL Whenever a card is Exhausted, apply 1 Weak to a random enemy."
+  },
   "${ModID}:DeadlyDraw": {
     "NAME": "Deadly Draw",
     "DESCRIPTION": "When you draw this card, Exhaust. NL Deal !D! damage."
