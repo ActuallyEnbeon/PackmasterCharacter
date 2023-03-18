@@ -44,7 +44,7 @@ public class FlashbackReturnToHandAction extends AbstractGameAction {
             c.applyPowers();
             c.unfadeOut();
             // TODO: sfx
-            c.flash(Color.PURPLE.cpy());
+            c.flash(Color.valueOf("673B90").cpy());
         }
         p.hand.refreshHandLayout();
         this.isDone = true;

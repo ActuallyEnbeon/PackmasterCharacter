@@ -1,0 +1,9 @@
+{
+  "${ModID}:FeelNoPainDownPower": {
+    "NAME": "Feel No Pain Down",
+    "DESCRIPTIONS": [
+      "At the end of this turn, lose #b",
+      " #yFeel #yNo #yPain."
+    ]
+  }
+}

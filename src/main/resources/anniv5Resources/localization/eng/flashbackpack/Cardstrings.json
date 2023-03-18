@@ -23,6 +23,10 @@
     "NAME": "Phasing Strike",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust a card. NL Exhaust."
   },
+  "${ModID}:RepressPain": {
+    "NAME": "Repress Pain",
+    "DESCRIPTION": "Whenever a card is Exhausted this turn, gain !M! Block. NL Exhaust a card."
+  },
   "${ModID}:Resolve": {
     "NAME": "Resolve",
     "DESCRIPTION": "Ethereal. NL Gain !B! Block. NL Increase this card's Block by !M! this combat."

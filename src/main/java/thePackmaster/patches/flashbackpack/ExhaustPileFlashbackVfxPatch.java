@@ -21,7 +21,7 @@ public class ExhaustPileFlashbackVfxPatch {
         @SpireInsertPatch(locator = Locator.class, localvars = {"toAdd"})
         public static void Insert(ExhaustPileViewScreen __instance, AbstractCard toAdd) {
             if (CardModifierManager.hasModifier(toAdd, FlashbackModifier.MOD_ID)) {
-                toAdd.glowColor = Color.PURPLE.cpy();
+                toAdd.glowColor = Color.valueOf("673B90").cpy();
                 toAdd.beginGlowing();
             }
         }

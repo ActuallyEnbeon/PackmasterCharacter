@@ -15,7 +15,7 @@ public class Insurrection extends AbstractPackmasterCard {
 
     public Insurrection() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        CardModifierManager.addModifier(this, new FlashbackModifier(2));
+        CardModifierManager.addModifier(this, new FlashbackModifier(3));
         damage = baseDamage = 5;
         magicNumber = baseMagicNumber = 0;
     }
@@ -23,12 +23,9 @@ public class Insurrection extends AbstractPackmasterCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractGameAction.AttackEffect effect;
         for (int i = 0; i <= magicNumber; i++) {
-            if (i < 3)
-                effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
-            else if (i < 6)
-                effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
-            else
-                effect = AbstractGameAction.AttackEffect.SMASH;
+            if (i < 2) effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
+            else if (i < 4) effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
+            else effect = AbstractGameAction.AttackEffect.SMASH;
             dmg(m, effect);
         }
     }

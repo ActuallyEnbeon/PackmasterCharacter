@@ -28,6 +28,7 @@ public class FlashbackPack extends AbstractCardPack {
         cards.add(HoldTight.ID);
         cards.add(Insurrection.ID);
         cards.add(PhasingStrike.ID);
+        cards.add(RepressPain.ID);
         cards.add(Resolve.ID);
         cards.add(ShadowShroud.ID);
         cards.add(SplitSecond.ID);
