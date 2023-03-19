@@ -40,6 +40,9 @@ public class SplitSecondAction extends AbstractGameAction {
             }
 
             if (p.exhaustPile.isEmpty()) {
+                AbstractDungeon.effectList.add(new ThoughtBubble(
+                        AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY,
+                        3.0F, TEXT[1], true));
                 this.isDone = true;
                 return;
             }

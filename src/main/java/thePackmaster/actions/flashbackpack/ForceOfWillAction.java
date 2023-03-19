@@ -40,7 +40,7 @@ public class ForceOfWillAction extends AbstractGameAction {
             }
 
             p.hand.group.add(c);
-            // TODO: add some kind of indication for which card is the one just played (glow is very tricky)
+            c.targetTransparency = 0.5F;
             AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
             tickDuration();
             return;
@@ -48,6 +48,7 @@ public class ForceOfWillAction extends AbstractGameAction {
 
         if (flipFlop) {
             p.hand.group.remove(c);
+            c.targetTransparency = 1F;
             flipFlop = false;
             tickDuration();
             return;
