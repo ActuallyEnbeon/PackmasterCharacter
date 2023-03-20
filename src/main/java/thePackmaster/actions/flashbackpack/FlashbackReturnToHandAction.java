@@ -1,5 +1,6 @@
 package thePackmaster.actions.flashbackpack;
 
+import basemod.BaseMod;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -25,6 +26,7 @@ public class FlashbackReturnToHandAction extends AbstractGameAction {
     @Override
     public void update() {
         for (AbstractCard c : cards) {
+            if (p.hand.size() == BaseMod.MAX_HAND_SIZE) break; // checks after each card return whether hand is full
             int amountOnCard = FlashbackFields.flashback.get(c);
             amountOnCard -= 1;
             if (amountOnCard <= 0)
@@ -43,7 +45,6 @@ public class FlashbackReturnToHandAction extends AbstractGameAction {
             p.exhaustPile.removeCard(c);
             c.applyPowers();
             c.unfadeOut();
-            // TODO: sfx
             c.flash(Color.valueOf("673B90").cpy());
         }
         p.hand.refreshHandLayout();

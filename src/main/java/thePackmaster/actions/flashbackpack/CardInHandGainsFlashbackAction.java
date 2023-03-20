@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
-import static thePackmaster.util.FlashbackUtil.applyFlashback;
+import static thePackmaster.util.flashbackpack.FlashbackUtil.applyFlashback;
 import static thePackmaster.util.Wiz.adp;
 
 public class CardInHandGainsFlashbackAction extends AbstractGameAction {

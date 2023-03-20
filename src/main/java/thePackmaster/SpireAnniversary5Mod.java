@@ -96,7 +96,7 @@ import thePackmaster.summaries.PackSummaryDisplay;
 import thePackmaster.summaries.PackSummaryReader;
 import thePackmaster.ui.*;
 import thePackmaster.ui.FixedModLabeledToggleButton.FixedModLabeledToggleButton;
-import thePackmaster.util.FlashbackUtil;
+import thePackmaster.util.flashbackpack.FlashbackUtil;
 import thePackmaster.util.cardvars.FlashbackVar;
 import thePackmaster.util.creativitypack.JediUtil;
 import thePackmaster.util.Keywords;

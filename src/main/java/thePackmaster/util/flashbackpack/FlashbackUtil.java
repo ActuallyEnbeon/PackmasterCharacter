@@ -1,4 +1,4 @@
-package thePackmaster.util;
+package thePackmaster.util.flashbackpack;
 
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,9 +31,11 @@ public class FlashbackUtil {
 
     public static void onPlayerTurnStart() {
         ArrayList<AbstractCard> cardsToFlashback = new ArrayList<>();
-        for (AbstractCard c : adp().exhaustPile.group)
-            if (CardModifierManager.hasModifier(c, FlashbackModifier.MOD_ID))
+        for (AbstractCard c : adp().exhaustPile.group) {
+            if (CardModifierManager.hasModifier(c, FlashbackModifier.MOD_ID)) {
                 cardsToFlashback.add(c);
+            }
+        }
         atb(new FlashbackReturnToHandAction(cardsToFlashback));
     }
 }

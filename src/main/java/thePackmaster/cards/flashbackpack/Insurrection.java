@@ -8,7 +8,7 @@ import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
 import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
-import static thePackmaster.util.FlashbackUtil.upgradeFlashback;
+import static thePackmaster.util.flashbackpack.FlashbackUtil.upgradeFlashback;
 
 public class Insurrection extends AbstractPackmasterCard {
     public final static String ID = makeID("Insurrection");
