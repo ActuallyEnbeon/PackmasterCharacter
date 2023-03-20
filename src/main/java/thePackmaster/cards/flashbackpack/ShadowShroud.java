@@ -5,14 +5,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.flashbackpack.FlashbackUtil.upgradeFlashback;
 import static thePackmaster.util.Wiz.adp;
 import static thePackmaster.util.Wiz.applyToSelf;
 
-public class ShadowShroud extends AbstractPackmasterCard {
+public class ShadowShroud extends FlashpackCard {
     public final static String ID = makeID("ShadowShroud");
 
     public ShadowShroud() {

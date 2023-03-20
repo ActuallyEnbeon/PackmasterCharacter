@@ -6,13 +6,12 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.flashbackpack.FlashbackUtil.upgradeFlashback;
 import static thePackmaster.util.Wiz.atb;
 
-public class PhasingStrike extends AbstractPackmasterCard {
+public class PhasingStrike extends FlashpackCard {
     public final static String ID = makeID("PhasingStrike");
 
     public PhasingStrike() {

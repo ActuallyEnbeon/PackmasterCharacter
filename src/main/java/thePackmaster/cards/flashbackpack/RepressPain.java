@@ -4,14 +4,13 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FeelNoPainPower;
-import thePackmaster.cards.AbstractPackmasterCard;
 import thePackmaster.powers.flashbackpack.FeelNoPainDownPower;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.Wiz.applyToSelf;
 import static thePackmaster.util.Wiz.atb;
 
-public class RepressPain extends AbstractPackmasterCard {
+public class RepressPain extends FlashpackCard {
     public final static String ID = makeID("RepressPain");
 
     public RepressPain() {

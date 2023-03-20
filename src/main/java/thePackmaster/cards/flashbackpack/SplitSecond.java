@@ -4,12 +4,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.actions.flashbackpack.SplitSecondAction;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.Wiz.atb;
 
-public class SplitSecond extends AbstractPackmasterCard {
+public class SplitSecond extends FlashpackCard {
     public final static String ID = makeID("SplitSecond");
 
     public SplitSecond() {

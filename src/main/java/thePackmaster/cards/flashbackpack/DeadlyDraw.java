@@ -5,13 +5,12 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
-import thePackmaster.cards.AbstractPackmasterCard;
 import thePackmaster.patches.hermitpack.EnumPatch;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.Wiz.*;
 
-public class DeadlyDraw extends AbstractPackmasterCard {
+public class DeadlyDraw extends FlashpackCard {
     public final static String ID = makeID("DeadlyDraw");
 
     public DeadlyDraw() {

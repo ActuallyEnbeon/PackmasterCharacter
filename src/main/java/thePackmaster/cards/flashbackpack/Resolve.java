@@ -5,13 +5,12 @@ import com.megacrit.cardcrawl.actions.common.ModifyBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.flashbackpack.FlashbackUtil.upgradeFlashback;
 import static thePackmaster.util.Wiz.atb;
 
-public class Resolve extends AbstractPackmasterCard {
+public class Resolve extends FlashpackCard {
     public final static String ID = makeID("Resolve");
 
     public Resolve() {

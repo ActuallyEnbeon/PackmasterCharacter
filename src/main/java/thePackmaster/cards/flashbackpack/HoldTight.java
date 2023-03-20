@@ -3,12 +3,11 @@ package thePackmaster.cards.flashbackpack;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.actions.flashbackpack.CardInHandGainsFlashbackAction;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.Wiz.atb;
 
-public class HoldTight extends AbstractPackmasterCard {
+public class HoldTight extends FlashpackCard {
     public final static String ID = makeID("HoldTight");
 
     public HoldTight() {

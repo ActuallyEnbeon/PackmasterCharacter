@@ -5,12 +5,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import thePackmaster.cardmodifiers.flashbackpack.FlashbackModifier;
-import thePackmaster.cards.AbstractPackmasterCard;
 
 import static thePackmaster.SpireAnniversary5Mod.makeID;
 import static thePackmaster.util.flashbackpack.FlashbackUtil.upgradeFlashback;
 
-public class Insurrection extends AbstractPackmasterCard {
+public class Insurrection extends FlashpackCard {
     public final static String ID = makeID("Insurrection");
 
     public Insurrection() {
@@ -23,9 +22,8 @@ public class Insurrection extends AbstractPackmasterCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractGameAction.AttackEffect effect;
         for (int i = 0; i <= magicNumber; i++) {
-            if (i < 2) effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
-            else if (i < 4) effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
-            else effect = AbstractGameAction.AttackEffect.SMASH;
+            if (i < 3) effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
+            else effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
             dmg(m, effect);
         }
     }
