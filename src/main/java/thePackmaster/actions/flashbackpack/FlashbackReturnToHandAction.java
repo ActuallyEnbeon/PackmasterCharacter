@@ -13,6 +13,7 @@ import thePackmaster.util.cardvars.FlashbackField.FlashbackFields;
 import java.util.ArrayList;
 
 import static thePackmaster.util.Wiz.adp;
+import static thePackmaster.util.flashbackpack.FlashbackUtil.reduceFlashback;
 
 public class FlashbackReturnToHandAction extends AbstractGameAction {
     public ArrayList<AbstractCard> cards;
@@ -27,15 +28,7 @@ public class FlashbackReturnToHandAction extends AbstractGameAction {
     public void update() {
         for (AbstractCard c : cards) {
             if (p.hand.size() == BaseMod.MAX_HAND_SIZE) break; // checks after each card return whether hand is full
-            int amountOnCard = FlashbackFields.flashback.get(c);
-            amountOnCard -= 1;
-            if (amountOnCard <= 0)
-                CardModifierManager.removeModifiersById(c, FlashbackModifier.MOD_ID, true);
-            else {
-                FlashbackFields.flashback.set(c, amountOnCard);
-                if (amountOnCard != FlashbackFields.baseFlashback.get(c))
-                    FlashbackFields.isFlashbackModified.set(c, true);
-            }
+            reduceFlashback(c, 1);
             c.initializeDescription();
             c.current_x = CardGroup.DISCARD_PILE_X;
             c.current_y = 0.0F;

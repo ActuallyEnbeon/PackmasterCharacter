@@ -14,11 +14,23 @@ import static thePackmaster.util.Wiz.atb;
 public class FlashbackUtil {
     public static void applyFlashback(AbstractCard card, int amountToApply) {
         int currentAmount = FlashbackFields.flashback.get(card);
-        if (currentAmount == -1)
+        if (currentAmount == -1) {
             CardModifierManager.addModifier(card, new FlashbackModifier(amountToApply));
-        else
+        } else {
             FlashbackFields.flashback.set(card, currentAmount + amountToApply);
+        }
         FlashbackFields.isFlashbackModified.set(card, true);
+    }
+
+    public static void reduceFlashback(AbstractCard card, int amountToReduceBy) {
+        int amountOnCard = FlashbackFields.flashback.get(card);
+        amountOnCard -= amountToReduceBy;
+        if (amountOnCard <= 0) {
+            CardModifierManager.removeModifiersById(card, FlashbackModifier.MOD_ID, true);
+        } else {
+            FlashbackFields.flashback.set(card, amountOnCard);
+            FlashbackFields.isFlashbackModified.set(card, true);
+        }
     }
 
     public static void upgradeFlashback(AbstractCard card, int amount) {

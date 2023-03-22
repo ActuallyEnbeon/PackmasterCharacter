@@ -41,6 +41,6 @@
   },
   "${ModID}:SplitSecond": {
     "NAME": "Split Second",
-    "DESCRIPTION": "Deal !D! damage. NL Put a card with ${ModID}:Flashback from your Exhaust pile into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Exhume a card with ${ModID}:Flashback."
   }
 }
