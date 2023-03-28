@@ -1,5 +1,6 @@
 package thePackmaster.powers.flashbackpack;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,8 +21,9 @@ public class FeelNoPainDownPower extends AbstractPackmasterPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        this.flash();
+    public void atEndOfRound() {
+        this.flashWithoutSound();
+        CardCrawlGame.sound.play("BUFF_" + MathUtils.random(1, 3));
         atb(new ReducePowerAction(this.owner, this.owner, FeelNoPainPower.POWER_ID, this.amount));
         atb(new RemoveSpecificPowerAction(this.owner, this.owner, this));
     }

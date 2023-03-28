@@ -23,7 +23,7 @@ public class PhasingStrike extends FlashpackCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+        dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         atb(new ExhaustAction(1, false, false, false));
     }
 
