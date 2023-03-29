@@ -1,7 +1,7 @@
 {
   "${ModID}:BorrowedTime": {
     "NAME": "Borrowed Time",
-    "DESCRIPTION": "${ModID}:Exhume a card. NL Whenever a card is Exhausted, apply 1 Weak to a random enemy."
+    "DESCRIPTION": "The first card you play each turn costs 0 and Exhausts."
   },
   "${ModID}:DeadlyDraw": {
     "NAME": "Deadly Draw",
@@ -41,6 +41,6 @@
   },
   "${ModID}:SplitSecond": {
     "NAME": "Split Second",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Exhume a card with ${ModID}:Flashback."
+    "DESCRIPTION": "Deal !D! damage. NL Put a card with ${ModID}:Flashback from your Exhaust pile into your hand."
   }
 }
