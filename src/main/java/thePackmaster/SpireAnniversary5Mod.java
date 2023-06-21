@@ -8,6 +8,7 @@ import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
 import basemod.eventUtil.EventUtils;
+import basemod.helpers.BaseModCardTags;
 import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.helpers.TextCodeInterpreter;
@@ -19,6 +20,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -70,6 +73,7 @@ import thePackmaster.patches.MainMenuUIPatch;
 import thePackmaster.patches.contentcreatorpack.DisableCountingStartOfTurnDrawPatch;
 import thePackmaster.patches.marisapack.AmplifyPatches;
 import thePackmaster.patches.odditiespack.PackmasterFoilPatches;
+import thePackmaster.patches.overwhelmingpack.MakeRoomPatch;
 import thePackmaster.patches.psychicpack.occult.OccultFields;
 import thePackmaster.patches.psychicpack.occult.OccultPatch;
 import thePackmaster.patches.sneckopack.EnergyCountPatch;
@@ -104,6 +108,7 @@ import thePackmaster.ui.FixedModLabeledToggleButton.FixedModLabeledToggleButton;
 import thePackmaster.util.flashbackpack.FlashbackUtil;
 import thePackmaster.util.cardvars.FlashbackVar;
 import thePackmaster.util.creativitypack.JediUtil;
+import thePackmaster.util.Wiz;
 import thePackmaster.util.Keywords;
 import thePackmaster.util.TexLoader;
 import thePackmaster.util.cardvars.HoardVar;
@@ -838,6 +843,7 @@ public class SpireAnniversary5Mod implements
         combatExhausts = 0;
         PenancePower.Power = 20;
         MindControlledPower.targetRng = new Random(Settings.seed + AbstractDungeon.floorNum);
+        MakeRoomPatch.reset();
         EnergyAndEchoPack.resetvalues();
         EnergyCountPatch.energySpentThisCombat = 0;
         DisableCountingStartOfTurnDrawPatch.DRAWN_DURING_TURN = false;
@@ -1135,6 +1141,9 @@ public class SpireAnniversary5Mod implements
         int innate = 0;
         int strike = 0;
         int healing = 0;
+        int unnate = 0;
+        int startup = 0;
+        int pickup = 0;
         List<String> notIronWaves = Arrays.asList(DimensionalIcicles.ID, SwordAndBoard.ID);
         List<String> ironWaves = new ArrayList<>();
         int ironwave = 0;
@@ -1144,6 +1153,7 @@ public class SpireAnniversary5Mod implements
         int upgradeNotEthereal = 0;
         int upgradeRetain = 0;
         int upgradeInnate = 0;
+        int upgradeUnnate = 0;
         int multiUpgrade = 0;
         for (AbstractCard c : cards) {
             AbstractCard cu = c.makeCopy();
@@ -1162,6 +1172,9 @@ public class SpireAnniversary5Mod implements
             if (c.isInnate) { innate++; }
             if (c.hasTag(AbstractCard.CardTags.STRIKE)) { strike++; }
             if (c.hasTag(AbstractCard.CardTags.HEALING)) { healing++; }
+            if ((c instanceof AbstractPackmasterCard) && ((AbstractPackmasterCard)c).isUnnate) { unnate++; }
+            if (c instanceof StartupCard) { startup++; }
+            if (c instanceof OnObtainCard) { pickup++; }
             if (c.type == AbstractCard.CardType.ATTACK && c.baseDamage >= 0 && c.baseBlock >= 0 && !notIronWaves.contains(c.cardID)) { ironwave++; ironWaves.add(c.name); }
             if (c.cost > cu.cost) { upgradeCost++; }
             if (c.exhaust && !cu.exhaust && ExhaustiveField.ExhaustiveFields.baseExhaustive.get(cu) == -1) { upgradeDontExhaust++; }
@@ -1169,6 +1182,7 @@ public class SpireAnniversary5Mod implements
             if (c.isEthereal && !cu.isEthereal) { upgradeNotEthereal++; }
             if (!c.selfRetain && cu.selfRetain) { upgradeRetain++; }
             if (!c.isInnate && cu.isInnate) { upgradeInnate++; }
+            if ((c instanceof AbstractPackmasterCard) && !((AbstractPackmasterCard)c).isUnnate && ((AbstractPackmasterCard)cu).isUnnate) { upgradeUnnate++; }
             if (cu.canUpgrade()) { multiUpgrade++; }
         }
 
@@ -1182,7 +1196,8 @@ public class SpireAnniversary5Mod implements
         SpireAnniversary5Mod.logger.info("Rarities: " + rarityInfo);
         SpireAnniversary5Mod.logger.info("Colors: " + colorInfo);
         SpireAnniversary5Mod.logger.info("Mechanics: AoE damage: " + aoeattack + ", Block: " + block + ", Exhaust: " + exhaust + ", Exhaustive: " + exhaustive + ", Ethereal: " + ethereal + ", Retain: " + retain + ", Innate: " + innate + ", Strike: " + strike + ", Healing: " + healing + ", Iron Waves: " + ironwave + ", Multiple upgrades: " + multiUpgrade);
-        SpireAnniversary5Mod.logger.info("Upgrades that: Reduce cost: " + upgradeCost + ", Remove exhaust: " + upgradeDontExhaust + ", Exhaust to exhaustive: " + upgradeExhaustive + ", Remove ethereal: " + upgradeNotEthereal + ", Add innate: " + upgradeInnate + ", Add retain: " + upgradeRetain);
+        SpireAnniversary5Mod.logger.info("Other mechanics: Unnate: " + unnate + ", Startup: " + startup + ", Pickup: " + pickup);
+        SpireAnniversary5Mod.logger.info("Upgrades that: Reduce cost: " + upgradeCost + ", Remove exhaust: " + upgradeDontExhaust + ", Exhaust to exhaustive: " + upgradeExhaustive + ", Remove ethereal: " + upgradeNotEthereal + ", Add innate: " + upgradeInnate + ", Add unnate: " + upgradeUnnate + ", Add retain: " + upgradeRetain);
         SpireAnniversary5Mod.logger.info("Iron waves: " + t.apply(ironWaves));
 
         HashSet<String> cardNames = new HashSet<>();
@@ -1245,6 +1260,7 @@ public class SpireAnniversary5Mod implements
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         ImproveEffect._clean();
+        MakeRoomPatch.reset();
         DynamicDynamicVariableManager.clearVariables();
         combatExhausts = 0;
     }
@@ -1401,7 +1417,13 @@ public class SpireAnniversary5Mod implements
                 }
                 for (String packID : strings) {
                     logger.info("adding pack " + packID + " from load");
-                    currentPoolPacks.add(packsByID.get(packID));
+                    AbstractCardPack pack = packsByID.get(packID);
+                    if (pack == null) {
+                        logger.error("Pack not found.");
+                    }
+                    else {
+                        currentPoolPacks.add(pack);
+                    }
                 }
             }
         });
