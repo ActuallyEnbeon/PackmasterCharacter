@@ -23,6 +23,8 @@ import thePackmaster.powers.marisapack.AmplifyPowerHook;
 import thePackmaster.util.TexLoader;
 import thePackmaster.util.Wiz;
 
+import static thePackmaster.SpireAnniversary5Mod.makeID;
+
 public class AmplifyPatches {
     public static AbstractCard amplified = null;
     public static boolean amplifiedThisTurn = false, amplifiedThisCombat = false;
@@ -172,7 +174,13 @@ public class AmplifyPatches {
         public static void patch(AbstractCard __instance, SpriteBatch sb) {
             if (__instance instanceof AmplifyCard) {
                 int ampCost = costLogic(__instance);
-                if(ampCost > 0) {
+                if (ampCost >= 2 && __instance.cardID.equals(makeID("UltimaBlast"))) {
+                    ExtraIcons.icon(energyIcon)
+                            .text("+"+ampCost)
+                            .textColor(new Color(1.0F, 1.0F, 0.0F, __instance.transparency))
+                            .drawColor(new Color(1, 1, 1, __instance.transparency))
+                            .render(__instance);
+                } else if (ampCost > 0) {
                     ExtraIcons.icon(energyIcon)
                             .text("+"+ampCost)
                             .drawColor(new Color(1, 1, 1, __instance.transparency))
