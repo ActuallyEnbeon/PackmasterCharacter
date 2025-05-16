@@ -20,10 +20,20 @@ public interface AmplifyCard {
      *                 This should be used in applyPowers/calculateCardDamage
      */
     default boolean shouldAmplify(AbstractCard thisCard) {
-        int cardCost = Wiz.getLogicalCardCost(thisCard);
-        return EnergyPanel.totalCount >= cardCost + ((AmplifyCard)thisCard)._costLogic();
+        return shouldAmplify(thisCard, getAmplifyCost());
     }
 
+    /**
+     * @param thisCard Instance of AbstractCard that should only ever be the card this interface instance is on
+     *                 Example: ((AmplifyCard)c).shouldAmplify(c)
+     * @param withAmplifyCost The card is tested as though its Amplify cost were this value
+     * @return boolean that is true if the card would be amplified if it is played now with the tested Amplify cost.
+     *                 This should be used in applyPowers/calculateCardDamage
+     */
+    default boolean shouldAmplify(AbstractCard thisCard, int withAmplifyCost) {
+        int cardCost = Wiz.getLogicalCardCost(thisCard);
+        return EnergyPanel.totalCount >= cardCost + ((AmplifyCard)thisCard)._costLogic(withAmplifyCost);
+    }
 
     /**
      * @param thisCard Instance of AbstractCard that should only ever be the card this interface instance is on
@@ -46,9 +56,13 @@ public interface AmplifyCard {
 
     // Includes amplify cost negation logic
     default int _costLogic() {
+        return _costLogic(getAmplifyCost());
+    }
+
+    default int _costLogic(int withAmplifyCost) {
         if(Wiz.p() != null && Wiz.p().hasPower(FreeAmplifyPower.POWER_ID)) {
             return 0;
         }
-        return getAmplifyCost();
+        return withAmplifyCost;
     }
 }
